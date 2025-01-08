@@ -1,0 +1,4 @@
+## Append samples of your project ##
+resources:
+- duanhui8_v1_clusterdefinition.yaml
+#+kubebuilder:scaffold:manifestskustomizesamples

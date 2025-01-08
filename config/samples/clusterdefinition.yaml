@@ -1,0 +1,82 @@
+apiVersion: duanhui8.duangh/v1
+kind: ClusterDefinition
+metadata:
+  name: mydb            #cd 名称
+spec:
+  componentDefs:
+    - name: mydb           # component 名称
+      characterType: mysql #lorry  会通过这个变量，获取role probe命令
+      podSpec:
+        containers:
+          - name: mydb
+            imagePullPolicy: IfNotPresent
+            env:
+              - name: IMAGE_TAG
+                value: "8.0.33"
+              - name: PATH
+                value: /kubeblocks/xtrabackup/bin:/kubeblocks/:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+              - name: KB_SERVICE_CHARACTER_TYPE
+                value: mysql
+              - name: MYSQL_ROOT_HOST
+                value: "%"
+              - name: MYSQL_ROOT_USER
+                valueFrom:
+                  secretKeyRef:
+                    name: $(CONN_CREDENTIAL_SECRET_NAME)
+                    key: username
+                    optional: false
+              - name: MYSQL_ROOT_PASSWORD
+                valueFrom:
+                  secretKeyRef:
+                    name: $(CONN_CREDENTIAL_SECRET_NAME)
+                    key: password
+                    optional: false
+            ports:
+              - containerPort: 3306  #配置容器的port端口，lorry启动的时候会读取，如果不配置lorry会崩溃
+                name: mysql
+              - containerPort: 3601
+                name: ha
+            volumeMounts:
+              - name: scripts
+                mountPath: /scripts
+              - mountPath: /var/lib/mysql
+                name: data
+              - mountPath: /kubeblocks
+                name: kubeblocks
+      workloadType: Replication  #创建cd必须配置
+      service:                   #让kubeblocks创建一个service
+         ports:
+           - name: mydb
+             port: 3306
+             targetPort: mydb
+      probes:                    #添加角色探测功能，自动注入lorry
+        roleProbe:
+          failureThreshold: 2
+          periodSeconds: 1
+          timeoutSeconds: 1
+      monitor:
+        builtIn: false
+        exporterConfig:
+          scrapePath: /metrics
+          scrapePort: 9104
+      configSpecs:
+        - name: mysql-replication-config
+          templateRef: oracle-mysql8.0-config-template
+          constraintRef: oracle-mysql8.0-config-constraints    #是否注入config-manager依赖这里配置
+          volumeName: mysql-config
+        - name: agamotto-configuration
+          templateRef: mysql-agamotto-configuration
+          volumeName: agamotto-configuration
+          defaultMode: 0444
+      scriptSpecs:               #将自己的脚本文件，挂载到volume中
+        - name: mysql-scripts
+          templateRef: mysql-scripts
+          volumeName: scripts
+          defaultMode: 0555
+  connectionCredential:          #告诉kb创建connectionCredential。lorry的env依赖账密，kbcli cluster connect 也依赖账密
+    username: root
+    password: "$(RANDOM_PASSWD)"
+    endpoint: "$(SVC_FQDN):$(SVC_PORT_mysql)"
+    host: "$(SVC_FQDN)"
+    port: "$(SVC_PORT_mysql)"
+    
