@@ -1,0 +1,27 @@
+# permissions for end users to edit clusters.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: src
+    app.kubernetes.io/managed-by: kustomize
+  name: cluster-editor-role
+rules:
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - clusters
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - clusters/status
+  verbs:
+  - get

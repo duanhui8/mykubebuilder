@@ -1,0 +1,9 @@
+apiVersion: duanhui8.duangh/v1
+kind: OpsRequest
+metadata:
+  labels:
+    app.kubernetes.io/name: src
+    app.kubernetes.io/managed-by: kustomize
+  name: opsrequest-sample
+spec:
+  # TODO(user): Add fields here

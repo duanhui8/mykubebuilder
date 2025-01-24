@@ -41,20 +41,6 @@ const (
 	AnyPods ProvisionScope = "AnyPods"
 )
 
-// Phase represents the current status of the ClusterDefinition and ClusterVersion CR.
-//
-// +enum
-// +kubebuilder:validation:Enum={Available,Unavailable}
-type Phase string
-
-const (
-	// AvailablePhase indicates that the object is in an available state.
-	AvailablePhase Phase = "Available"
-
-	// UnavailablePhase indicates that the object is in an unavailable state.
-	UnavailablePhase Phase = "Unavailable"
-)
-
 // VolumeType defines the type of volume, specifically distinguishing between volumes used for backup data and those used for logs.
 //
 // +enum
@@ -420,4 +406,18 @@ const (
 
 	// ReferToExisting will not create account, but create a secret by copying data from referred secret file.
 	ReferToExisting ProvisionPolicyType = "ReferToExisting"
+)
+
+// Phase represents the current status of the ClusterDefinition and ClusterVersion CR.
+//
+// +enum
+// +kubebuilder:validation:Enum={Available,Unavailable}
+type Phase string
+
+const (
+	// AvailablePhase indicates that the object is in an available state.
+	AvailablePhase Phase = "Available"
+
+	// UnavailablePhase indicates that the object is in an unavailable state.
+	UnavailablePhase Phase = "Unavailable"
 )

@@ -1,0 +1,55 @@
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  annotations:
+    controller-gen.kubebuilder.io/version: v0.14.0
+  name: componentdefinitions.duanhui8.duangh
+spec:
+  group: duanhui8.duangh
+  names:
+    kind: ComponentDefinition
+    listKind: ComponentDefinitionList
+    plural: componentdefinitions
+    singular: componentdefinition
+  scope: Namespaced
+  versions:
+  - name: v1
+    schema:
+      openAPIV3Schema:
+        description: ComponentDefinition is the Schema for the componentdefinitions
+          API
+        properties:
+          apiVersion:
+            description: |-
+              APIVersion defines the versioned schema of this representation of an object.
+              Servers should convert recognized schemas to the latest internal value, and
+              may reject unrecognized values.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources
+            type: string
+          kind:
+            description: |-
+              Kind is a string value representing the REST resource this object represents.
+              Servers may infer this from the endpoint the client submits requests to.
+              Cannot be updated.
+              In CamelCase.
+              More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds
+            type: string
+          metadata:
+            type: object
+          spec:
+            description: ComponentDefinitionSpec defines the desired state of ComponentDefinition
+            properties:
+              foo:
+                description: Foo is an example field of ComponentDefinition. Edit
+                  componentdefinition_types.go to remove/update
+                type: string
+            type: object
+          status:
+            description: ComponentDefinitionStatus defines the observed state of ComponentDefinition
+            type: object
+        type: object
+    served: true
+    storage: true
+    subresources:
+      status: {}

@@ -1,0 +1,23 @@
+# permissions for end users to view componentdefinitions.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: src
+    app.kubernetes.io/managed-by: kustomize
+  name: componentdefinition-viewer-role
+rules:
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - componentdefinitions
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - componentdefinitions/status
+  verbs:
+  - get

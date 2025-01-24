@@ -7,6 +7,58 @@ rules:
 - apiGroups:
   - duanhui8.duangh
   resources:
+  - addons
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - addons/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - addons/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - backuppolicytemplates
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - backuppolicytemplates/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - backuppolicytemplates/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
   - clusterdefinitions
   verbs:
   - create
@@ -26,6 +78,292 @@ rules:
   - duanhui8.duangh
   resources:
   - clusterdefinitions/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - clusters
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - clusters/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - clusters/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - clusterversions
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - clusterversions/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - clusterversions/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - componentclassdefinitions
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - componentclassdefinitions/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - componentclassdefinitions/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - componentdefinitions
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - componentdefinitions/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - componentdefinitions/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - components
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - components/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - components/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - componentversions
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - componentversions/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - componentversions/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - configconstraints
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - configconstraints/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - configconstraints/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - events
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - events/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - events/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - instancesets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - instancesets/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - instancesets/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - opsrequests
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - opsrequests/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - opsrequests/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - servicedescriptors
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - servicedescriptors/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - servicedescriptors/status
   verbs:
   - get
   - patch

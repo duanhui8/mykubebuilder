@@ -27,6 +27,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
 	duanhui8v1 "duangh/mykubebuilder/api/v1"
+	v1 "duangh/mykubebuilder/api/v1"
 
 	intctrlutil "duangh/mykubebuilder/pkg/controllerutil"
 )
@@ -68,9 +69,28 @@ func (r *ClusterDefinitionReconciler) Reconcile(ctx context.Context, req ctrl.Re
 	if clusterDef.Status.ObservedGeneration == clusterDef.Generation && slices.Contains(clusterDef.Status.GetTerminalPhases(), clusterDef.Status.Phase) {
 		return intctrlutil.Reconciled()
 	}
-	r.reconcile(reqCtx, clusterDef)
+	if _, err := r.reconcile(reqCtx, clusterDef); err != nil {
+		return intctrlutil.CheckedRequeueWithError(err, reqCtx.Log, "")
+	}
+	if err := r.available(reqCtx, clusterDef); err != nil {
+		intctrlutil.CheckedRequeueWithError(err, reqCtx.Log, "")
+	}
 	intctrlutil.RecordCreatedEvent(r.Recorder, clusterDef)
-	return ctrl.Result{}, nil
+	return intctrlutil.Reconciled()
+}
+
+func (r *ClusterDefinitionReconciler) status(rctx intctrlutil.RequestCtx, clusterDef *duanhui8v1.ClusterDefinition, phase v1.Phase, message string) error {
+	patch := client.MergeFrom(clusterDef.DeepCopy())
+	clusterDef.Status.Phase = phase
+	clusterDef.Status.ObservedGeneration = clusterDef.Generation
+	clusterDef.Status.Message = message
+
+	return r.Client.Status().Patch(rctx.Ctx, clusterDef, patch)
+}
+
+func (r *ClusterDefinitionReconciler) available(rctx intctrlutil.RequestCtx, clusterDef *duanhui8v1.ClusterDefinition) error {
+	return r.status(rctx, clusterDef, v1.AvailablePhase, "my status is success")
+
 }
 
 func (r *ClusterDefinitionReconciler) reconcile(rctx intctrlutil.RequestCtx, clusterDef *duanhui8v1.ClusterDefinition) (*ctrl.Result, error) {

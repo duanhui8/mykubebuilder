@@ -17,4 +17,121 @@ resources:
   kind: ClusterDefinition
   path: duangh/mykubebuilder/api/v1
   version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: duangh
+  group: duanhui8
+  kind: Cluster
+  path: duangh/mykubebuilder/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: duangh
+  group: duanhui8
+  kind: InstanceSet
+  path: duangh/mykubebuilder/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: duangh
+  group: duanhui8
+  kind: Component
+  path: duangh/mykubebuilder/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: duangh
+  group: duanhui8
+  kind: ClusterVersion
+  path: duangh/mykubebuilder/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: duangh
+  group: duanhui8
+  kind: ComponentDefinition
+  path: duangh/mykubebuilder/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: duangh
+  group: duanhui8
+  kind: ComponentVersion
+  path: duangh/mykubebuilder/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: duangh
+  group: duanhui8
+  kind: BackupPolicyTemplate
+  path: duangh/mykubebuilder/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: duangh
+  group: duanhui8
+  kind: ConfigConstraint
+  path: duangh/mykubebuilder/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: duangh
+  group: duanhui8
+  kind: OpsRequest
+  path: duangh/mykubebuilder/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: duangh
+  group: duanhui8
+  kind: Event
+  path: duangh/mykubebuilder/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: duangh
+  group: duanhui8
+  kind: ComponentClassDefinition
+  path: duangh/mykubebuilder/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: duangh
+  group: duanhui8
+  kind: ServiceDescriptor
+  path: duangh/mykubebuilder/api/v1
+  version: v1
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: duangh
+  group: duanhui8
+  kind: Addon
+  path: duangh/mykubebuilder/api/v1
+  version: v1
 version: "3"

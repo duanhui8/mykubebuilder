@@ -1,4 +1,17 @@
 ## Append samples of your project ##
 resources:
 - duanhui8_v1_clusterdefinition.yaml
+- duanhui8_v1_cluster.yaml
+- duanhui8_v1_instanceset.yaml
+- duanhui8_v1_component.yaml
+- duanhui8_v1_clusterversion.yaml
+- duanhui8_v1_componentdefinition.yaml
+- duanhui8_v1_componentversion.yaml
+- duanhui8_v1_backuppolicytemplate.yaml
+- duanhui8_v1_configconstraint.yaml
+- duanhui8_v1_opsrequest.yaml
+- duanhui8_v1_event.yaml
+- duanhui8_v1_componentclassdefinition.yaml
+- duanhui8_v1_servicedescriptor.yaml
+- duanhui8_v1_addon.yaml
 #+kubebuilder:scaffold:manifestskustomizesamples

@@ -20,5 +20,31 @@ resources:
 # default, aiding admins in cluster management. Those roles are
 # not used by the Project itself. You can comment the following lines
 # if you do not want those helpers be installed with your Project.
+- addon_editor_role.yaml
+- addon_viewer_role.yaml
+- servicedescriptor_editor_role.yaml
+- servicedescriptor_viewer_role.yaml
+- componentclassdefinition_editor_role.yaml
+- componentclassdefinition_viewer_role.yaml
+- event_editor_role.yaml
+- event_viewer_role.yaml
+- opsrequest_editor_role.yaml
+- opsrequest_viewer_role.yaml
+- configconstraint_editor_role.yaml
+- configconstraint_viewer_role.yaml
+- backuppolicytemplate_editor_role.yaml
+- backuppolicytemplate_viewer_role.yaml
+- componentversion_editor_role.yaml
+- componentversion_viewer_role.yaml
+- componentdefinition_editor_role.yaml
+- componentdefinition_viewer_role.yaml
+- clusterversion_editor_role.yaml
+- clusterversion_viewer_role.yaml
+- component_editor_role.yaml
+- component_viewer_role.yaml
+- instanceset_editor_role.yaml
+- instanceset_viewer_role.yaml
+- cluster_editor_role.yaml
+- cluster_viewer_role.yaml
 - clusterdefinition_editor_role.yaml
 - clusterdefinition_viewer_role.yaml

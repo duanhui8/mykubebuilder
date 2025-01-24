@@ -1,0 +1,23 @@
+# permissions for end users to view opsrequests.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: src
+    app.kubernetes.io/managed-by: kustomize
+  name: opsrequest-viewer-role
+rules:
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - opsrequests
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - duanhui8.duangh
+  resources:
+  - opsrequests/status
+  verbs:
+  - get
